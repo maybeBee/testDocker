@@ -2,7 +2,7 @@ version: 2.1
 executors:
   docker-publisher:
     environment:
-      IMAGE_NAME: test
+      IMAGE_NAME: docker
     docker:
       - image: circleci/node:8.0.0
 jobs:
@@ -35,7 +35,7 @@ jobs:
           name: Publish Docker Image to Docker Hub
           command: |
             docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
-            docker push $IMAGE_NAME:latest
+            docker push eduproject/docker:latest
 workflows:
   version: 2
   build-master:
